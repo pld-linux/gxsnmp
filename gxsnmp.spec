@@ -41,7 +41,7 @@ gettextize --copy --force
 aclocal -I macros
 autoconf
 automake -a -c
-CFLAGS="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS} -I%{_includedir}"
+CFLAGS="%{rpmcflags} -I%{_includedir}"
 %configure \
 	--disable-static \
 	--with-gnome \

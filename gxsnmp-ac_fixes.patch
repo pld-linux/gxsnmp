@@ -1,0 +1,36 @@
+--- gxsnmp-0.0.16/configure.in~	Fri Jan 11 16:19:56 2002
++++ gxsnmp-0.0.16/configure.in	Fri Jan 11 16:19:56 2002
+@@ -58,33 +58,6 @@
+ AC_PROG_MAKE_SET
+ AM_PROG_LIBTOOL
+ 
+-dnl ***** Check for gcc and enable gcc features *****
+-if test "x${GCC}" = "xyes"
+-then
+-   CFLAGS="$CFLAGS -Wall -Wshadow"
+-   AC_CACHE_CHECK( "for gcc strength-reduce bug", ac_cv_c_gcc_strength_bug,
+-	AC_TRY_RUN([
+-int main(void) {
+-  static int Array[[3]];
+-  unsigned int B = 3;
+-  int i;
+-  for(i=0; i<B; i++) Array[[i]] = i - 3;
+-  exit( Array[[1]] != -2 );
+-}],
+-    ac_cv_c_gcc_strength_bug="no",
+-    ac_cv_c_gcc_strength_bug="yes",
+-    ac_cv_c_gcc_strength_bug="yes") )
+-  if test "$ac_cv_c_gcc_strength_bug" = "yes"
+-   then
+-    CFLAGS="$CFLAGS -fno-strength-reduce"
+-  fi
+-fi
+-dnl **** If using gcc make a neat pipeline of the compiler componets ****
+-if test "x${GCC}" = "xyes"
+-then
+-   CFLAGS="$CFLAGS -pipe"
+-fi
+-
+ dnl **** Internationalization ****
+ ALL_LINGUAS="ca de es fr no"
+ AM_GNU_GETTEXT

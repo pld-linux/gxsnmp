@@ -3,10 +3,11 @@ Name:		gxsnmp
 Version:	0.0.15.1
 Release:	3
 License:	GPL
-Group:		X11/GNOME
-Group(pl):	X11/GNOME
+Group:		X11/Applications
+Group(de):	X11/Applikationen
+Group(pl):	X11/Aplikacje
 Source0:	ftp://coco.comstar.net/pub/gxsnmp/%{name}-%{version}.tar.gz
-Patch0:		gxsnmp-DESTDIR.patch
+Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-mib-browser.patch
 URL:		http://www.gxsnmp.org/
 BuildRequires:	gnome-libs-devel
@@ -32,9 +33,8 @@ GXSNMP Is the SNMP network managament application.
 %patch1 -p1
 
 %build
-CFLAGS="$RPM_OPT_FLAGS -I%{_includedir}"; export CFLAGS
-LDFLAGS="-s"; export LDFLAGS
 gettextize --copy --force
+CFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g} -I%{_includedir}"
 %configure \
 	--disable-static \
 	--with-gnome \
@@ -45,15 +45,11 @@ gettextize --copy --force
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} \
+%{__make} install \
 	 DESTDIR=$RPM_BUILD_ROOT \
-	 Admindir=%{_applnkdir}/Network/Misc \
-	 install
+	 Admindir=%{_applnkdir}/Network/Misc
 
 gzip -9nf AUTHORS ChangeLog NEWS README
-
-strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* \
-	$RPM_BUILD_ROOT%{_libdir}/gxsnmp/plugins/lib*.so.*.*
 
 %find_lang %{name}
 

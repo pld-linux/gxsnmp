@@ -4,6 +4,7 @@ Version:	0.0.15.1
 Release:	1
 License:	GPL
 Group:		X11/GNOME
+Group(pl):	X11/GNOME
 Source0:	ftp://coco.comstar.net/pub/gxsnmp/%{name}-%{version}.tar.gz
 Patch0:		gxsnmp-applnk.patch
 Patch1:		gxsnmp-DESTDIR.patch

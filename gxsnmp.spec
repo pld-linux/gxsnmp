@@ -12,6 +12,7 @@ Patch1:		%{name}-am15.patch
 Patch2:		%{name}-MIBs_path.patch
 Patch3:		%{name}-ac_fixes.patch
 Patch4:		%{name}-iputil.c_fix.patch
+Patch5:		%{name}-desktop.patch
 URL:		http://www.gxsnmp.org/
 BuildRequires:	ORBit-devel
 BuildRequires:	autoconf
@@ -41,6 +42,7 @@ GXSNMP to aplikacja do zarz±dzania sieci± przez SNMP.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
 
 %build
 rm -f missing acinclude.m4

@@ -9,6 +9,7 @@ BuildRequires:	ORBit-devel
 BuildRequires:	gtk+-devel
 BuildRequires:	flex
 BuildRequires:	gettext-devel
+BuildRequires:	perl
 URL:		http://www.gxsnmp.org/
 BuildRoot:	/tmp/%{name}-%{version}-root
 
@@ -42,7 +43,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc *.gz
-%{_bindir}/*
+%attr(755,root,root) %{_bindir}/*
 %{_datadir}/pixmaps
 
 %changelog

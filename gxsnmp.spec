@@ -1,7 +1,7 @@
 Summary:	GXSNMP Network Management Application
 Name:		gxsnmp
 Version:	0.0.15.1
-Release:	4
+Release:	5
 License:	GPL
 Group:		X11/Applications
 Group(de):	X11/Applikationen
@@ -9,7 +9,10 @@ Group(pl):	X11/Aplikacje
 Source0:	ftp://coco.comstar.net/pub/gxsnmp/%{name}-%{version}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-mib-browser.patch
+Patch2:		%{name}-cvs.patch
 URL:		http://www.gxsnmp.org/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	gnome-libs-devel
 BuildRequires:	ORBit-devel
 BuildRequires:	gtk+-devel
@@ -17,7 +20,7 @@ BuildRequires:	flex
 BuildRequires:	gettext-devel
 BuildRequires:	perl
 BuildRequires:	libsmi-devel >= 0.2
-BuildRequires:	mysql-devel
+BuildRequires:	mysql-devel >= 3.23.32
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -31,15 +34,18 @@ GXSNMP Is the SNMP network managament application.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 gettextize --copy --force
+aclocal -I macros
+autoconf
+automake -a -c
 CFLAGS="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS} -I%{_includedir}"
 %configure \
 	--disable-static \
 	--with-gnome \
-	--with-mysql \
-	--with-pgsql
+	--with-mysql
 %{__make}
 
 %install
@@ -51,7 +57,7 @@ rm -rf $RPM_BUILD_ROOT
 
 gzip -9nf AUTHORS ChangeLog NEWS README
 
-%find_lang %{name}
+%find_lang %{name} --with-gnome
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig

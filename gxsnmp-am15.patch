@@ -1,0 +1,81 @@
+--- gxsnmp-0.0.16/app/Makefile.am~	Wed Jan  9 22:01:08 2002
++++ gxsnmp-0.0.16/app/Makefile.am	Wed Jan  9 22:01:08 2002
+@@ -1,7 +1,5 @@
+ ## Process this file with automake to produce Makefile.in
+ 
+-CFLAGS += -Wall
+-
+ SUBDIRS = widgets
+ 
+ Mibdir = $(sysconfdir)
+--- gxsnmp-0.0.16/database/Makefile.am~	Wed Jan  9 22:02:09 2002
++++ gxsnmp-0.0.16/database/Makefile.am	Wed Jan  9 22:02:09 2002
+@@ -1,6 +1,5 @@
+ ## Process this file with automake to produce Makefile.in
+ SUBDIRS = tables
+-CFLAGS += -Wall
+ 
+ lib_LTLIBRARIES = libgxsnmpdb.la
+ 
+--- gxsnmp-0.0.16/widgets/Makefile.am~	Wed Jan  9 22:02:45 2002
++++ gxsnmp-0.0.16/widgets/Makefile.am	Wed Jan  9 22:02:45 2002
+@@ -1,4 +1,3 @@
+-CFLAGS += -Wall
+ 
+ lib_LTLIBRARIES = libgtkext.la
+ 
+--- gxsnmp-0.0.16/app/Makefile.am~	Wed Jan  9 22:23:39 2002
++++ gxsnmp-0.0.16/app/Makefile.am	Wed Jan  9 22:23:39 2002
+@@ -50,8 +50,6 @@
+ 	wire_host.c		wire_host.h
+ 
+ 
+-CFLAGS += -DMIBTXTDIR=\"$(sysconfdir)\" -DMIBDIR=\"$(datadir)/gxsnmp/mibs\"
+-
+ INCLUDES = \
+         -DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
+         -DLOCALEDIR=\"$(datadir)/locale\" \
+@@ -65,6 +63,8 @@
+ 	-I$(top_srcdir)/app/widgets \
+ 	-I$(includedir)
+ 
++gxsnmp_CFLAGS = -DMIBTXTDIR=\"$(sysconfdir)\" -DMIBDIR=\"$(datadir)/gxsnmp/mibs\"
++
+ gxsnmp_LDADD = \
+ 	$(top_builddir)/lib/libgxsnmp.la \
+ 	$(top_builddir)/app/widgets/libgxsnmpapp.la \
+@@ -73,10 +73,10 @@
+ 	$(X_LIBS) \
+         $(GNOME_LIBDIR) $(GNOMEUI_LIBS) \
+         $(INTLLIBS) \
+-	@GNOME_LIBDIR@ \
+-	@SNMP_LIBS@ \
+-	@SMI_LIB@ \
+-	@GLE_LIBS@
++	$(GNOME_LIBDIR) \
++	$(SNMP_LIBS) \
++	$(SMI_LIB) \
++	$(GLE_LIBS)
+ 
+ wc:
+ 	wc -l $(gxsnmp_SOURCES)
+--- gxsnmp-0.0.16/app/widgets/Makefile.am~	Wed Jan  9 22:38:04 2002
++++ gxsnmp-0.0.16/app/widgets/Makefile.am	Wed Jan  9 22:38:04 2002
+@@ -1,7 +1,7 @@
+-CFLAGS += -Wall -DMIBDIR=\"$(datadir)/gxsnmp/mibs\"
+-
+ lib_LTLIBRARIES = libgxsnmpapp.la
+ 
++libgxsnmpapp_la_CFLAGS = -DMIBDIR=\"$(datadir)/gxsnmp/mibs\"
++
+ libgxsnmpapp_la_SOURCES = 	\
+ 	gnome-dialog-create-button.c \
+ 	gnome-dialog-create-button.h \
+@@ -46,6 +46,6 @@
+ 	-I$(top_srcdir)/app		\
+ 	-I$(top_srcdir)/app/widgets	\
+ 	-I$(top_srcdir)/lib		\
+-        -I@MYSQL_INCLUDEDIR@            \
++        -I$(MYSQL_INCLUDEDIR)           \
+         -I$(includedir)
+ 

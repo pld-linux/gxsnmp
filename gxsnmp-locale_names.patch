@@ -1,0 +1,22 @@
+--- gxsnmp-0.0.16/configure.in~	Fri Jul 23 13:22:57 2004
++++ gxsnmp-0.0.16/configure.in	Fri Jul 23 13:22:57 2004
+@@ -59,7 +59,7 @@
+ AM_PROG_LIBTOOL
+ 
+ dnl **** Internationalization ****
+-ALL_LINGUAS="ca de es fr no"
++ALL_LINGUAS="ca de es fr nb"
+ AM_GNOME_GETTEXT
+ 
+ dnl **** Check for the X libraries. ****
+--- gxsnmp-0.0.16/configure~	Fri Jul 23 13:23:11 2004
++++ gxsnmp-0.0.16/configure	Fri Jul 23 13:23:11 2004
+@@ -8840,7 +8840,7 @@
+    CFLAGS="$CFLAGS -pipe"
+ fi
+ 
+-ALL_LINGUAS="ca de es fr no"
++ALL_LINGUAS="ca de es fr nb"
+ if test -n "$ac_tool_prefix"; then
+   # Extract the first word of "${ac_tool_prefix}ranlib", so it can be a program name with args.
+ set dummy ${ac_tool_prefix}ranlib; ac_word=$2

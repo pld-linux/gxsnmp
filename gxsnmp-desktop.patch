@@ -1,7 +1,7 @@
-diff -u gxsnmp-0.0.16.orig/gxsnmp.desktop gxsnmp-0.0.16/gxsnmp.desktop
---- gxsnmp-0.0.16.orig/gxsnmp.desktop	Fri Dec 14 15:24:07 2001
-+++ gxsnmp-0.0.16/gxsnmp.desktop	Thu Dec 25 01:15:59 2003
-@@ -4,22 +4,24 @@
+diff -urN gxsnmp-0.0.16.orig/gxsnmp.desktop gxsnmp-0.0.16/gxsnmp.desktop
+--- gxsnmp-0.0.16.orig/gxsnmp.desktop	2001-12-14 15:24:07.000000000 +0100
++++ gxsnmp-0.0.16/gxsnmp.desktop	2004-07-04 14:56:26.366762368 +0200
+@@ -4,22 +4,25 @@
  Name[de]=SNMP Monitor
  Name[es]=Monitor SNMP
  Name[fr]=Moniteur SNMP
@@ -34,4 +34,5 @@ diff -u gxsnmp-0.0.16.orig/gxsnmp.desktop gxsnmp-0.0.16/gxsnmp.desktop
 +Terminal=false
  Type=Application
 +Encoding=UTF-8
++Categories=GTK;GNOME;Network;
 +# vi: encoding=utf-8

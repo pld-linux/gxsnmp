@@ -1,6 +1,6 @@
 Summary:	GXSNMP Network Management Application
 Name:		gxsnmp
-Version:	0.0.13
+Version:	0.0.15
 Release:	1
 Copyright:	GPL
 Group:		X11/GNOME
@@ -10,7 +10,7 @@ BuildRequires:	gtk+-devel
 BuildRequires:	flex
 BuildRequires:	gettext-devel
 BuildRequires:	perl
-BuildRequires:	libsmi-devel
+BuildRequires:	libsmi-devel >= 0.1.7
 URL:		http://www.gxsnmp.org/
 BuildRoot:	/tmp/%{name}-%{version}-root
 

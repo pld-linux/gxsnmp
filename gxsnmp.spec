@@ -2,7 +2,7 @@ Summary:	GXSNMP Network Management Application
 Summary(pl):	GXSNMP - aplikacja do zarz±dzania sieci±
 Name:		gxsnmp
 Version:	0.0.16
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Group(de):	X11/Applikationen
@@ -15,6 +15,7 @@ Patch0:		%{name}-mib-browser.patch
 Patch1:		%{name}-am15.patch
 Patch2:		%{name}-MIBs_path.patch
 Patch3:		%{name}-ac_fixes.patch
+Patch4:		%{name}-iputil.c_fix.patch
 URL:		http://www.gxsnmp.org/
 BuildRequires:	ORBit-devel
 #BuildRequires:	autoconf
@@ -44,6 +45,7 @@ GXSNMP to aplikacja do zarz±dzania sieci± przez SNMP.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 rm -f missing acinclude.m4

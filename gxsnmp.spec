@@ -16,12 +16,11 @@ BuildRequires:	gettext-devel
 BuildRequires:	perl
 BuildRequires:	libsmi-devel >= 0.2
 BuildRequires:	mysql-devel
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_infodir	/usr/share/info
 %define		_sysconfdir	/etc/X11/GNOME
-%define		_applnkdir	%{_datadir}/applnk
 
 %description 
 GXSNMP Is the SNMP network managament application.

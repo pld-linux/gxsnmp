@@ -13,10 +13,10 @@ Patch3:		%{name}-ac_fixes.patch
 Patch4:		%{name}-iputil.c_fix.patch
 URL:		http://www.gxsnmp.org/
 BuildRequires:	ORBit-devel
-#BuildRequires:	autoconf
-#BuildRequires:	automake
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	flex
-#BuildRequires:	gettext-devel
+BuildRequires:	gettext-devel
 BuildRequires:	gnome-libs-devel
 BuildRequires:	gtk+-devel
 BuildRequires:	libsmi-devel >= 0.2
@@ -48,7 +48,7 @@ sed -e 's/AM_GNOME_GETTEXT/AM_GNU_GETTEXT/; s/AM_ACLOCAL_INCLUDE.*//' \
 	configure.in > configure.in.new
 mv -f configure.in.new configure.in
 %{__gettextize}
-aclocal -I %{_aclocaldir}/gnome
+%{__aclocal} -I %{_aclocaldir}/gnome
 %{__autoconf}
 %{__automake}
 CFLAGS="%{rpmcflags} -I%{_includedir}"

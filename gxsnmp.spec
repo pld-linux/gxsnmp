@@ -50,7 +50,7 @@ mv -f configure.in.new configure.in
 gettextize --copy --force
 aclocal -I %{_aclocaldir}/gnome
 autoconf
-automake -a -c
+automake -a -c -f
 CFLAGS="%{rpmcflags} -I%{_includedir}"
 %configure \
 	--disable-static \

@@ -47,7 +47,7 @@ rm -f missing acinclude.m4
 sed -e 's/AM_GNOME_GETTEXT/AM_GNU_GETTEXT/; s/AM_ACLOCAL_INCLUDE.*//' \
 	configure.in > configure.in.new
 mv -f configure.in.new configure.in
-gettextize --copy --force
+%{__gettextize}
 aclocal -I %{_aclocaldir}/gnome
 %{__autoconf}
 %{__automake}

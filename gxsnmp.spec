@@ -1,11 +1,15 @@
 Summary:	GXSNMP Network Management Application
+Summary(pl):	GXSNMP - aplikacja do zarz±dzania sieci±
 Name:		gxsnmp
 Version:	0.0.15.1
 Release:	7
 License:	GPL
 Group:		X11/Applications
 Group(de):	X11/Applikationen
+Group(es):	X11/Aplicaciones
 Group(pl):	X11/Aplikacje
+Group(pt_BR):	X11/Aplicações
+Group(pt):	X11/Aplicações
 Source0:	ftp://coco.comstar.net/pub/gxsnmp/%{name}-%{version}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-mib-browser.patch
@@ -28,7 +32,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_sysconfdir	/etc/X11/GNOME
 
 %description 
-GXSNMP Is the SNMP network managament application.
+GXSNMP is the SNMP network managament application.
+
+%description -l pl
+GXSNMP to aplikacja do zarz±dzania sieci± przez SNMP.
 
 %prep
 %setup -q
@@ -59,11 +66,11 @@ gzip -9nf AUTHORS ChangeLog NEWS README
 
 %find_lang %{name} --with-gnome
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
-
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)

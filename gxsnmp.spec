@@ -28,7 +28,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_infodir	/usr/share/info
 %define		_sysconfdir	/etc/X11/GNOME
 
-%description 
+%description
 GXSNMP is the SNMP network managament application.
 
 %description -l pl

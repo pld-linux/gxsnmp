@@ -34,7 +34,7 @@ GXSNMP Is the SNMP network managament application.
 
 %build
 gettextize --copy --force
-CFLAGS="%{?debug:-O -g}%{!?debug:$RPM_OPT_FLAGS} -I%{_includedir}"
+CFLAGS="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS} -I%{_includedir}"
 %configure \
 	--disable-static \
 	--with-gnome \

@@ -22,11 +22,10 @@ BuildRequires:	gettext-devel
 BuildRequires:	gnome-libs-devel
 BuildRequires:	gtk+-devel
 BuildRequires:	libsmi-devel >= 0.2
+BuildRequires:	libtool
 BuildRequires:	mysql-devel >= 3.23.32
-BuildRequires:	perl
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_infodir	/usr/share/info
 %define		_sysconfdir	/etc/X11/GNOME
 
 %description
@@ -54,7 +53,6 @@ mv -f configure.in.new configure.in
 %{__aclocal} -I %{_aclocaldir}/gnome
 %{__autoconf}
 %{__automake}
-CFLAGS="%{rpmcflags} -I%{_includedir}"
 %configure \
 	--disable-static \
 	--with-gnome \

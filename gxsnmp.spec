@@ -12,6 +12,9 @@ Group(pt_BR):	X11/Aplicações
 Group(pt):	X11/Aplicações
 Source0:	ftp://coco.comstar.net/pub/gxsnmp/%{name}-%{version}.tar.gz
 Patch0:		%{name}-mib-browser.patch
+Patch1:		%{name}-am15.patch
+Patch2:		%{name}-MIBs_path.patch
+Patch3:		%{name}-ac_fixes.patch
 URL:		http://www.gxsnmp.org/
 BuildRequires:	ORBit-devel
 #BuildRequires:	autoconf
@@ -37,17 +40,20 @@ GXSNMP to aplikacja do zarz±dzania sieci± przez SNMP.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
+%patch1 -p1
+%patch2 -p1
+%patch3 -p1
 
 %build
-#sed -e 's/AM_GNOME_GETTEXT/AM_GNU_GETTEXT/' configure.in | \
-#	sed -e 's/AM_ACLOCAL_INCLUDE.*//' > configure.in.new
-#mv -f configure.in.new configure.in
-#gettextize --copy --force
-#aclocal
-##-I macros
-#autoconf
-#automake -a -c
+rm -f missing acinclude.m4
+sed -e 's/AM_GNOME_GETTEXT/AM_GNU_GETTEXT/; s/AM_ACLOCAL_INCLUDE.*//' \
+	configure.in > configure.in.new
+mv -f configure.in.new configure.in
+gettextize --copy --force
+aclocal -I %{_aclocaldir}/gnome
+autoconf
+automake -a -c
 CFLAGS="%{rpmcflags} -I%{_includedir}"
 %configure \
 	--disable-static \

@@ -1,7 +1,7 @@
 Summary:	GXSNMP Network Management Application
 Name:		gxsnmp
 Version:	0.0.15.1
-Release:	5
+Release:	6
 License:	GPL
 Group:		X11/Applications
 Group(de):	X11/Applikationen
@@ -72,7 +72,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %dir %{_libdir}/gxsnmp
 %dir %{_libdir}/gxsnmp/plugins
-%attr(755,root,root) /%{_libdir}/gxsnmp/plugins/*
+%attr(755,root,root) /%{_libdir}/gxsnmp/plugins/lib*.so*
 %{_applnkdir}/Network/Misc/*
 %{_datadir}/gxsnmp
 %{_pixmapsdir}/gxsnmp

@@ -1,8 +1,8 @@
 Summary:	GXSNMP Network Management Application
 Summary(pl):	GXSNMP - aplikacja do zarz±dzania sieci±
 Name:		gxsnmp
-Version:	0.0.15.1
-Release:	7
+Version:	0.0.16
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Group(de):	X11/Applikationen
@@ -11,20 +11,18 @@ Group(pl):	X11/Aplikacje
 Group(pt_BR):	X11/Aplicações
 Group(pt):	X11/Aplicações
 Source0:	ftp://coco.comstar.net/pub/gxsnmp/%{name}-%{version}.tar.gz
-Patch0:		%{name}-DESTDIR.patch
-Patch1:		%{name}-mib-browser.patch
-Patch2:		%{name}-cvs.patch
+Patch0:		%{name}-mib-browser.patch
 URL:		http://www.gxsnmp.org/
-BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	gnome-libs-devel
 BuildRequires:	ORBit-devel
-BuildRequires:	gtk+-devel
+#BuildRequires:	autoconf
+#BuildRequires:	automake
 BuildRequires:	flex
-BuildRequires:	gettext-devel
-BuildRequires:	perl
+#BuildRequires:	gettext-devel
+BuildRequires:	gnome-libs-devel
+BuildRequires:	gtk+-devel
 BuildRequires:	libsmi-devel >= 0.2
 BuildRequires:	mysql-devel >= 3.23.32
+BuildRequires:	perl
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -39,15 +37,17 @@ GXSNMP to aplikacja do zarz±dzania sieci± przez SNMP.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
+%patch -p1
 
 %build
-gettextize --copy --force
-aclocal -I macros
-autoconf
-automake -a -c
+#sed -e 's/AM_GNOME_GETTEXT/AM_GNU_GETTEXT/' configure.in | \
+#	sed -e 's/AM_ACLOCAL_INCLUDE.*//' > configure.in.new
+#mv -f configure.in.new configure.in
+#gettextize --copy --force
+#aclocal
+##-I macros
+#autoconf
+#automake -a -c
 CFLAGS="%{rpmcflags} -I%{_includedir}"
 %configure \
 	--disable-static \

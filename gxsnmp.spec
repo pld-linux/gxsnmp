@@ -10,6 +10,7 @@ BuildRequires:	gtk+-devel
 BuildRequires:	flex
 BuildRequires:	gettext-devel
 BuildRequires:	perl
+BuildRequires:	libsmi-devel
 URL:		http://www.gxsnmp.org/
 BuildRoot:	/tmp/%{name}-%{version}-root
 
@@ -23,9 +24,12 @@ GXSNMP Is the SNMP network managament application.
 %setup -q
 
 %build
+CFLAGS="$RPM_OPT_FLAGS -I%{_prefix}/include"; export CFLAGS
 LDFLAGS="-s"; export LDFLAGS
 gettextize --copy --force
-%configure
+%configure \
+	--with-gnome \
+	--without-mysql
 make
 
 %install

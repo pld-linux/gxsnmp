@@ -1,12 +1,13 @@
 Summary:	GXSNMP Network Management Application
 Name:		gxsnmp
 Version:	0.0.15.1
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/GNOME
 Group(pl):	X11/GNOME
 Source0:	ftp://coco.comstar.net/pub/gxsnmp/%{name}-%{version}.tar.gz
 Patch0:		gxsnmp-DESTDIR.patch
+Patch1:		%{name}-mib-browser.patch
 URL:		http://www.gxsnmp.org/
 BuildRequires:	gnome-libs-devel
 BuildRequires:	ORBit-devel
@@ -28,6 +29,7 @@ GXSNMP Is the SNMP network managament application.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 CFLAGS="$RPM_OPT_FLAGS -I%{_includedir}"; export CFLAGS

@@ -1,0 +1,11 @@
+--- gxsnmp-0.0.16/app/Makefile.am	Fri Jan 11 14:39:59 2002
++++ gxsnmp-0.0.16/app/Makefile.am.orig	Fri Jan 11 14:41:04 2002
+@@ -63,7 +63,7 @@
+ 	-I$(top_srcdir)/app/widgets \
+ 	-I$(includedir)
+ 
+-gxsnmp_CFLAGS = -DMIBTXTDIR=\"$(sysconfdir)\" -DMIBDIR=\"$(datadir)/gxsnmp/mibs\"
++gxsnmp_CFLAGS = -DMIBDIR=\"/usr/share/mibs\"
+ 
+ gxsnmp_LDADD = \
+ 	$(top_builddir)/lib/libgxsnmp.la \

@@ -76,6 +76,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_applnkdir}/Network/Misc/*
 %{_datadir}/gxsnmp
 %{_datadir}/pixmaps/gxsnmp
-
-%dir %{_datadir}/gnome/help/gxsnmp
-%lang(en) %{_datadir}/gnome/help/gxsnmp/C

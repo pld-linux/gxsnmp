@@ -1,0 +1,11 @@
+--- gxsnmp-0.0.16/app/iputil.c~	Sun Jan 13 18:55:41 2002
++++ gxsnmp-0.0.16/app/iputil.c	Sun Jan 13 18:55:41 2002
+@@ -44,7 +44,7 @@
+     l_bits = 32;
+   else
+     l_bits = bits;
+-  return (htonl ((gulong)(pow (2, 32)) - (pow (2, 32 - l_bits))));
++  return (htonl ((gulong)((pow (2, 32)) - (pow (2, 32 - l_bits)))));
+ }
+ 
+ /*

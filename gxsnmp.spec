@@ -2,7 +2,7 @@ Summary:	GXSNMP Network Management Application
 Summary(pl):	GXSNMP - aplikacja do zarz±dzania sieci±
 Name:		gxsnmp
 Version:	0.0.16
-Release:	6
+Release:	7
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://coco.comstar.net/pub/gxsnmp/%{name}-%{version}.tar.gz
@@ -66,7 +66,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	 DESTDIR=$RPM_BUILD_ROOT \
-	 Admindir=%{_applnkdir}/Network/Misc
+	 Admindir=%{_desktopdir}
 
 %find_lang %{name} --with-gnome
 
@@ -84,6 +84,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/gxsnmp
 %dir %{_libdir}/gxsnmp/plugins
 %attr(755,root,root) /%{_libdir}/gxsnmp/plugins/lib*.so*
-%{_applnkdir}/Network/Misc/*
+%{_desktopdir}/*
 %{_datadir}/gxsnmp
 %{_pixmapsdir}/gxsnmp

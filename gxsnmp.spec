@@ -75,4 +75,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) /%{_libdir}/gxsnmp/plugins/*
 %{_applnkdir}/Network/Misc/*
 %{_datadir}/gxsnmp
-%{_datadir}/pixmaps/gxsnmp
+%{_pixmapsdir}/gxsnmp

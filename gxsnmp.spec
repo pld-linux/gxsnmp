@@ -24,7 +24,6 @@ BuildRequires:	mysql-devel >= 3.23.32
 BuildRequires:	perl
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
 %define		_infodir	/usr/share/info
 %define		_sysconfdir	/etc/X11/GNOME
 

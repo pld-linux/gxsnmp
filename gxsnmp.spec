@@ -6,6 +6,7 @@ Release:	4
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://coco.comstar.net/pub/gxsnmp/%{name}-%{version}.tar.gz
+# Source0-md5:	d37f7c85fd96861e8e88e7092d2cb913
 Patch0:		%{name}-mib-browser.patch
 Patch1:		%{name}-am15.patch
 Patch2:		%{name}-MIBs_path.patch

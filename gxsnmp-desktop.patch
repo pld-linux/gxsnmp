@@ -6,8 +6,9 @@ diff -urN gxsnmp-0.0.16.orig/gxsnmp.desktop gxsnmp-0.0.16/gxsnmp.desktop
  Name[es]=Monitor SNMP
  Name[fr]=Moniteur SNMP
 -Name[ja]=SNMP•‚•À•ø
+-Name[no]=SNMP-Monitor
 +Name[ja]=SNMP„É¢„Éã„Çø
- Name[no]=SNMP-Monitor
++Name[nb]=SNMP-Monitor
 +Name[pl]=Monitor SNMP
  Name[pt]=Monitor SNMP
  Name[wa]=Waitieu SNMP
@@ -19,10 +20,11 @@ diff -urN gxsnmp-0.0.16.orig/gxsnmp.desktop gxsnmp-0.0.16/gxsnmp.desktop
 -Comment[es]=Monitor y administraciÛn SNMP (Simple Protocolo de GestiÛn de Redes)
 -Comment[fr]=Moniteur et administration SNMP (Protocole Simple de Gestion de RÈseaux)
 -Comment[ja]=SNMP¥…Õ˝•‚•À•ø(Simple Network Management Protocol)
+-Comment[no]=SNMP-Monitor
 +Comment[es]=Monitor y administraci√≥n SNMP (Simple Protocolo de Gesti√≥n de Redes)
 +Comment[fr]=Moniteur et administration SNMP (Protocole Simple de Gestion de R√©seaux)
 +Comment[ja]=SNMPÁÆ°ÁêÜ„É¢„Éã„Çø(Simple Network Management Protocol)
- Comment[no]=SNMP-Monitor
++Comment[nb]=SNMP-Monitor
 +Comment[pl]=Monitorowanie i administracja SNMP (Simple Network Management Protocol)
  Comment[pt]=Monitor SNMP
 -Comment[wa]=Waitieu eyËt manaedjmint SNMP (Simpe Protocole di Manaedjmint di Rantoeles)

@@ -1,7 +1,7 @@
 Summary:	GXSNMP Network Management Application
 Name:		gxsnmp
 Version:	0.0.15.1
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Applications
 Group(de):	X11/Applikationen

@@ -43,7 +43,7 @@ make
 %install
 rm -rf $RPM_BUILD_ROOT
 
-make \
+%{__make} \
 	 DESTDIR=$RPM_BUILD_ROOT \
 	 Admindir=%{_applnkdir}/Network/Misc \
 	 install

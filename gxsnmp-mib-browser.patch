@@ -1,0 +1,65 @@
+diff -ur gxsnmp-0.0.15.1/app/browser.c gxsnmp-0.0.15.1.new/app/browser.c
+--- gxsnmp-0.0.15.1/app/browser.c	Wed Mar 15 05:07:10 2000
++++ gxsnmp-0.0.15.1.new/app/browser.c	Wed Oct 18 00:04:09 2000
+@@ -299,6 +299,7 @@
+   D_FUNC_START;
+   smi_type = smiGetNodeType(node);
+   if (!smi_type) {
++	  return;
+       /* XXX ? */
+   }
+   if (smi_type->basetype == SMI_BASETYPE_ENUM)
+@@ -357,9 +358,7 @@
+   if (node)
+     {
+       smi_type = smiGetNodeType(node);
+-      if (! smi_type) {
+-	  /* XXX ? */
+-      }
++      if (smi_type) {
+       switch (smi_type->basetype)
+ 	{
+ 	  case SMI_BASETYPE_INTEGER32:
+@@ -399,6 +398,8 @@
+ 	  default:
+ 	    buffer = _("Unknown");
+ 	}
++	  /* XXX ? */
++      }
+       gtk_entry_set_text (GTK_ENTRY (dialog->mib_type), buffer);
+       switch (node->status)
+ 	{
+@@ -423,7 +424,8 @@
+ 	}
+       gtk_entry_set_text (GTK_ENTRY (dialog->mib_status), buffer);
+       smi_module = smiGetNodeModule(node);
+-      gtk_entry_set_text (GTK_ENTRY (dialog->mib_module), smi_module->name);
++      if (smi_module)
++	      gtk_entry_set_text (GTK_ENTRY (dialog->mib_module), smi_module->name);
+       buffer = (gchar *) g_malloc(1024);
+       getoid(node, buffer, 1024);
+       gtk_entry_set_text (GTK_ENTRY (dialog->mib_oid), buffer);
+@@ -579,6 +581,7 @@
+     }
+   smi_module = smiGetModule(module);
+   if (! smi_module) {
++	  return;
+       /* XXX ? */
+   }
+   node = smiGetNode(smi_module, name);
+@@ -668,6 +671,7 @@
+                                gxsnmp_browser_module_key);
+   smi_module = smiGetModule(module);
+   if (! smi_module) {
++	  return;
+       /* XXX ? */
+   }
+   node = smiGetNode(smi_module, name);
+@@ -681,6 +685,7 @@
+   value = gtk_entry_get_text(GTK_ENTRY (dialog->mib_value));
+   smi_type = smiGetNodeType(node);
+   if (! smi_type) {
++	  return;
+       /* XXXX ? */
+   }
+   switch(smi_type->basetype)

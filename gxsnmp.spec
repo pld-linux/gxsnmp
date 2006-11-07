@@ -88,6 +88,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/gxsnmp
 %dir %{_libdir}/gxsnmp/plugins
 %attr(755,root,root) /%{_libdir}/gxsnmp/plugins/lib*.so*
-%{_desktopdir}/*
+%{_desktopdir}/*.desktop
 %{_datadir}/gxsnmp
 %{_pixmapsdir}/gxsnmp

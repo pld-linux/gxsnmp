@@ -1,5 +1,5 @@
 Summary:	GXSNMP Network Management Application
-Summary(pl.UTF-8):   GXSNMP - aplikacja do zarządzania siecią
+Summary(pl.UTF-8):	GXSNMP - aplikacja do zarządzania siecią
 Name:		gxsnmp
 Version:	0.0.16
 Release:	12
